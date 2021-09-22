@@ -201,7 +201,7 @@ public class AntiAddictionCore {
                         currentUser = new User(userId);
                         currentUser.setAccountType(userType);
                     } else {
-                        if (!AntiAddictionKit.getFunctionConfig().getUseSdkRealName() && currentUser.getAccountType() != userType) {
+                        if (AntiAddictionKit.getFunctionConfig().getUseSdkRealName() && currentUser.getAccountType() != userType) {
                             currentUser.setAccountType(userType);
                             resetUserState();
                         }
@@ -240,7 +240,7 @@ public class AntiAddictionCore {
                     });
                 }
             } else {
-//                if (!AntiAddictionKit.getFunctionConfig().getUseSdkRealName()) {
+//                if (AntiAddictionKit.getFunctionConfig().getUseSdkRealName()) {
 //                    if (getCurrentUser().getUserId().equals(userId) && getCurrentUser().getAccountType() != userType) {
 //                        resetUserInfo(userType);
 //                        getCallBack().onResult(AntiAddictionKit.CALLBACK_CODE_LOGIN_SUCCESS, "");
@@ -256,7 +256,7 @@ public class AntiAddictionCore {
             return;
         }
         if (null != currentUser) {
-            if (!AntiAddictionKit.getFunctionConfig().getUseSdkRealName()) {
+            if (AntiAddictionKit.getFunctionConfig().getUseSdkRealName()) {
                 if (getCurrentUser().getAccountType() != userType) {
                     resetUserInfo(userType);
                     if(AntiAddictionKit.getFunctionConfig().getSupportSubmitToServer()){
